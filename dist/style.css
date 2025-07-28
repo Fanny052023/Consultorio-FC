@@ -1,0 +1,895 @@
+/*
+ * Estilos generales para el cuerpo de la página
+ * Define la fuente, márgenes, color de fondo y color de texto.
+ */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+/*
+ * Estilos para el encabezado (Header)
+ * Contiene el logo, la navegación principal y los iconos de redes sociales.
+ */
+header {
+    background-color: rgba(0, 121, 107, 0.9); /* Verde azulado con 90% de opacidad */
+    color: white; /* Texto blanco */
+    padding: 0.8em 20px; /* Reducido el padding vertical para compactar el header */
+    display: flex; /* Para alinear elementos en fila */
+    justify-content: space-between; /* Espacia el logo, la navegación y las redes sociales */
+    align-items: center; /* Centra verticalmente todos los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    position: fixed; /* Para que el menú permanezca visible al hacer scroll */
+    width: 100%; /* Ocupa todo el ancho si es fixed */
+    top: 0; /* Empieza desde arriba si es fixed */
+    left: 0; /* Empieza desde la izquierda si es fixed */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    box-sizing: border-box; /* Asegura que el padding no agregue ancho extra */
+}
+
+/* Estilos para el logo dentro del encabezado */
+.logo {
+    display: flex; /* Usa flexbox para alinear el contenido dentro del logo */
+    align-items: center; /* Centra verticalmente la imagen del logo */
+    flex-shrink: 0; /* Evita que el logo se encoja si hay poco espacio */
+}
+
+.logo img {
+    max-height: 100px; /* Altura del logo */
+    display: block; /* Elimina cualquier espacio extra debajo de la imagen */
+    margin: 0; /* Asegura que la imagen no tenga márgenes internos */
+    padding: 0; /* Asegura que la imagen no tenga padding interno */
+}
+
+/* Estilos para la lista de navegación */
+nav {
+    /* flex-grow: 1; */ /* Quitado para un control más preciso del espaciado */
+    /* text-align: right; */ /* Se manejará mejor con justify-content en el header */
+    margin: 0 auto; /* Permite que la nav se centre entre el logo y los iconos si hay espacio */
+    flex-basis: auto; /* Permite que se ajuste al contenido si no hay suficiente espacio */
+}
+
+nav ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Sin padding en la lista */
+    margin: 0; /* Sin margen en la lista */
+    display: flex; /* Para alinear los ítems del menú en fila */
+    justify-content: center; /* <--- AJUSTE: Centra los ítems del menú dentro de 'nav' */
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas pequeñas */
+}
+
+/* Estilos para cada ítem de la lista de navegación */
+nav ul li {
+    margin: 0 10px; /* Reducido el espacio horizontal entre ítems */
+}
+
+/* Estilos para los enlaces de la navegación */
+nav ul li a {
+    color: white; /* Color del texto blanco */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    padding: 0.6em 1em; /* Reducido el padding para hacer los elementos más compactos */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave al pasar el ratón */
+    display: block; /* Para que el padding funcione correctamente en toda el área del enlace */
+    font-weight: 600; /* Un poco más de peso a la fuente para destacar */
+    white-space: nowrap; /* Evita que el texto de los enlaces se rompa en varias líneas */
+}
+
+/* Estilos al pasar el ratón por los enlaces de la navegación */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo blanco semitransparente al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+}
+
+/* NUEVOS ESTILOS PARA LOS ÍCONOS DE REDES SOCIALES */
+.social-icons {
+    display: flex; /* Alinea los íconos en fila */
+    align-items: center; /* Centra los íconos verticalmente */
+    margin-left: 20px; /* Espacio entre el menú y los íconos */
+    flex-shrink: 0; /* Evita que los íconos se encojan si hay poco espacio */
+}
+
+.social-icons a {
+    color: white; /* Color de los íconos */
+    font-size: 1.4em; /* Tamaño de los íconos */
+    margin: 0 8px; /* Espacio entre los íconos */
+    transition: color 0.3s ease, transform 0.2s ease; /* Transición suave para hover */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.social-icons a:hover {
+    color: #e0f2f1; /* Un color ligeramente más claro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de levantamiento */
+}
+
+/*
+ * Estilos responsivos para pantallas más pequeñas (teléfonos y tablets)
+ */
+@media (max-width: 768px) {
+    /* Encabezado en pantallas pequeñas */
+    header {
+        flex-direction: column; /* Apila el logo, la navegación y los iconos */
+        align-items: center; /* Centra todos los elementos apilados */
+        padding: 1em; /* Ajusta el padding para móviles */
+        position: static; /* En móvil, quizás no quieras que sea fixed */
+    }
+
+    /* Margen inferior para el logo */
+    .logo {
+        margin-bottom: 1em; /* Espacio debajo del logo */
+        margin-right: 0; /* Asegura que no haya margen a la derecha en móvil */
+    }
+
+    /* Navegación en pantallas pequeñas */
+    nav {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 1em 0; /* Margen superior e inferior para separar de logo y iconos */
+    }
+
+    nav ul {
+        flex-direction: column; /* Apila los ítems del menú */
+        align-items: center; /* Centra los ítems verticalmente */
+        justify-content: center; /* Centra los ítems apilados */
+    }
+
+    /* Margen inferior para los ítems del menú */
+    nav ul li {
+        margin: 0 0 10px 0; /* Espacio vertical entre ítems */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    nav ul li a {
+        padding: 0.8em 0; /* Ajusta padding para que ocupe el ancho */
+        text-align: center; /* Centra el texto del enlace */
+    }
+
+    /* Redes sociales en pantallas pequeñas */
+    .social-icons {
+        margin-left: 0; /* Elimina el margen izquierdo en móvil */
+        margin-top: 1em; /* Añade espacio arriba para separar de la nav */
+        width: 100%; /* Ocupa todo el ancho */
+        justify-content: center; /* Centra los iconos */
+    }
+}
+/*
+ * Estilos para la sección de inicio (#inicio) y el carrusel
+ * Contiene el carrusel de imágenes y el contenido principal de bienvenida.
+ */
+#inicio {
+    position: relative; /* Para posicionar el contenido de bienvenida sobre el carrusel */
+    color: white;
+    text-align: center;
+    /* padding-bottom: 40px; Este padding ya no es tan necesario si el contenido está absolute */
+    height: 600px; /* Asegura que la sección de inicio tenga una altura definida para el carrusel */
+    overflow: hidden; /* Importante para que el carrusel no se desborde */
+}
+
+/* Contenedor del carrusel para controlar el desbordamiento */
+.carousel-container {
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura de #inicio */
+}
+
+/* Contenedor de las diapositivas del carrusel */
+.slides {
+    display: flex; /* Para que las imágenes se muestren en fila */
+    width: fit-content; /* Se ajusta al contenido (todas las imágenes) */
+    height: 100%; /* Ocupa toda la altura del carousel-container */
+    transition: transform 0.5s ease-in-out; /* Transición suave al cambiar de slide */
+}
+
+/* Estilos para cada imagen dentro del carrusel */
+.slides img {
+    width: 100vw; /* Cada imagen ocupa el ancho completo de la ventana */
+    height: 100%; /* Ocupa toda la altura de su contenedor */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+/* Contenido superpuesto en la sección de inicio */
+.inicio-contenido {
+    position: absolute; /* Posicionamiento absoluto sobre el carrusel */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrado perfecto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente oscuro */
+    padding: 2em;
+    border-radius: 10px; /* Bordes redondeados */
+    width: 80%; /* Ancho del contenido */
+    max-width: 960px; /* Ancho máximo */
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+    z-index: 10; /* Asegura que esté por encima del carrusel */
+}
+
+/* Estilos para los títulos principales de la sección de inicio */
+.inicio-contenido h1 {
+    font-family: 'Poppins', sans-serif; /* Fuente destacada */
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Estilos para el subtítulo de la sección de inicio */
+.inicio-contenido h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+/*
+ * Estilos para la sección "Sobre Nosotros" (#nosotros)
+ */
+#nosotros {
+    padding: 40px 20px; /* Espaciado interno */
+    text-align: center;
+    background-color: #fff; /* Fondo blanco */
+}
+
+/* Título de la sección "Sobre Nosotros" */
+#nosotros h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b; /* Color verde azulado */
+    margin-bottom: 1em;
+}
+
+/* Estilos para el artículo de texto en "Sobre Nosotros" */
+#nosotros article {
+    max-width: 800px; /* Ancho máximo del texto */
+    margin: 0 auto; /* Centrar el artículo */
+    text-align: left; /* Alineación del texto */
+    line-height: 1.8; /* Espaciado entre líneas */
+}
+
+
+/*
+ * Estilos para la sección de "Servicios" (#servicios)
+ * AHORA CON IMAGEN DE FONDO SEMITRANSPARENTE Y AJUSTES PARA LAS TARJETAS.
+ *
+ * ESTE BLOQUE ES LA VERSIÓN FINAL Y CONSOLIDADA.
+ */
+#servicios {
+    padding: 40px 20px;
+    background: linear-gradient(rgba(224, 242, 241, 0.8), rgba(224, 242, 241, 0.8)), /* Capa semitransparente */
+                url('https://thumbs.dreamstime.com/b/doctor-con-el-fondo-m%C3%A9dico-24834402.jpg') center center / cover no-repeat;
+    background-attachment: fixed; /* Opcional: Efecto parallax */
+    text-align: center;
+}
+
+/* Título de la sección "Servicios" */
+#servicios h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b;
+    margin-bottom: 0.3em; /* Reducido para el párrafo intro */
+}
+
+/* Estilos para el párrafo introductorio de la sección de servicios */
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 30px auto; /* Centrado y con margen inferior */
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Grid para los ítems de servicio */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para pantallas más pequeñas */
+    gap: 25px; /* Espacio entre los ítems */
+    margin-top: 20px;
+}
+
+/* Estilos para cada ítem de servicio (la tarjeta individual) */
+.service-item {
+    background-color: white;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    text-align: center; /* Alineado al centro para la imagen y contenido */
+    display: flex; /* Para Flexbox */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    height: 90%; /* Asegura que la tarjeta ocupe toda la altura disponible en el grid */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+    padding: 0; /* Quitamos el padding aquí, se aplicará al contenido textual dentro del wrapper */
+    overflow: hidden; /* Importante para el border-radius de la imagen */
+}
+
+/* Efecto hover para los ítems de servicio */
+.service-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+/* Estilos para las IMÁGENES dentro de los ítems de servicio */
+.service-item img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 180px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarse */
+    border-radius: 8px 8px 0 0; /* Solo redondea las esquinas superiores */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    /* margin-bottom se manejará con el padding del content-wrapper */
+}
+
+/* CONTENEDOR PARA EL TEXTO Y EL BOTÓN DE CADA SERVICIO */
+.service-item .content-wrapper {
+    padding: 0px 20px 25px; /* Padding: 15px arriba, 25px a los lados y abajo */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que este wrapper ocupe el espacio restante */
+    text-align: left; /* Alinea el texto a la izquierda dentro del wrapper */
+}
+
+/* Títulos de los ítems de servicio (dentro del content-wrapper) */
+.service-item h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b;
+    margin-top: 0; /* Elimina margen superior para pegar al inicio del content-wrapper */
+    margin-bottom: 2px; /* Espacio entre título y párrafo */
+    font-size: 1.4em; /* Tamaño de fuente ligeramente mayor */
+}
+
+/* Párrafos de los ítems de servicio (dentro del content-wrapper) */
+.service-item p {
+    margin-top: 0;
+    margin-bottom: 20px; /* Espacio debajo del párrafo */
+    flex-grow: 1; /* Permite que el párrafo se estire, empujando el botón hacia abajo */
+    color: #444; /* Color de texto ligeramente más oscuro */
+    line-height: 1.7; /* Mejor legibilidad */
+}
+
+/* Estilos para el botón "Más Información" (si lo usas y está dentro del content-wrapper) */
+.service-item .service-btn {
+    display: inline-block;
+    background-color: #009688;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+    align-self: center; /* Centra el botón horizontalmente si content-wrapper es flex */
+}
+
+.service-item .service-btn:hover {
+    background-color: #00796b;
+}
+
+/* Estilos para los títulos y párrafos adicionales en la sección de servicios (antes del botón modal) */
+#servicios h3 { /* Este es el h3 antes del modal, no el de las tarjetas */
+    margin-top: 1em; /* Espacio antes de este título */
+    color: #00796b;
+    font-size: 1.5em; /* Un poco más grande para destacarse */
+}
+
+#servicios p { /* Este es el p antes del modal, no el de las tarjetas */
+    margin-bottom: 1.5em; /* Espacio antes del botón modal */
+}
+
+/* Estilos para el botón "Ver Especialidades" */
+.leer-mas-btn {
+    background-color: #009688;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos al pasar el ratón por el botón */
+.leer-mas-btn:hover {
+    background-color: #00796b;
+}
+
+/*
+ * Estilos para el modal de especialidades
+ */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Se mantiene en la misma posición al desplazarse */
+    z-index: 1000; /* Se superpone a otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite desplazamiento si el contenido es muy largo */
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente oscuro */
+}
+
+/* Contenido del modal */
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% desde arriba y centrado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 700px; /* Ancho máximo */
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de cerrar el modal */
+.cerrar {
+    color: #aaa;
+    float: right; /* Alineado a la derecha */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Estilos al pasar el ratón o enfocar el botón de cerrar */
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Grid para las especialidades dentro del modal */
+#contenedorEspecialidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+    gap: 15px; /* Espacio entre las especialidades */
+    margin-top: 20px;
+}
+
+/* Estilos para cada ítem de especialidad dentro del modal */
+.especialidad-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra más sutil */
+    text-align: left;
+    border: 1px solid #eee; /* Borde suave */
+}
+
+/* Títulos de las especialidades */
+.especialidad-item h4 {
+    color: #009688;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+/*
+ * Estilos para la sección de "Novedades" (#novedades)
+ *
+ * NOTA: Este bloque reemplaza y ajusta las reglas anteriores para esta sección
+ * para reducir espacios y mejorar el layout de las tarjetas.
+ */
+#novedades {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Título de la sección "Novedades" */
+#novedades h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b;
+    margin-bottom: 1em;
+}
+
+/* Grid para los artículos de novedades */
+.novedades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 20px;
+}
+
+/* Estilos para cada artículo de novedad (la tarjeta individual) */
+.novedad-item {
+    background-color: #e0f2f1; /* Fondo verde muy claro */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex; /* Para usar Flexbox */
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    overflow: hidden; /* Asegura que los border-radius funcionen bien con la imagen */
+    height: 100%; /* Permite que las tarjetas se estiren para igualar alturas en el grid */
+    padding: 0; /* Reinicia el padding de la tarjeta para controlarlo con los elementos internos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
+}
+
+/* Efecto hover para los ítems de novedad */
+.novedad-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+/* Estilos para las imágenes dentro de los ítems de novedad */
+.novedad-item img {
+    display: block; /* Elimina espacio extra */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-radius: 8px 8px 0 0; /* Redondea solo las esquinas superiores */
+}
+
+/* Contenedor interno para el texto y el botón, para controlar el padding */
+.novedad-item .content-wrapper {
+    padding: 15px 20px 20px; /* Ajuste de padding: Arriba, Lados, Abajo */
+    display: flex; /* Necesario para que flex-grow funcione en el párrafo */
+    flex-direction: column; /* Apila el contenido del wrapper */
+    flex-grow: 1; /* Permite que el wrapper ocupe todo el espacio restante */
+}
+
+/* Títulos de los artículos de novedad */
+.novedad-item h3 {
+    color: #009688;
+    margin-top: 0; /* **Clave para reducir espacio superior** */
+    margin-bottom: 8px; /* **Espacio reducido entre título y párrafo** */
+    font-size: 1.25em; /* Un poco más grande para el título */
+}
+
+/* Párrafos de los artículos de novedad */
+.novedad-item p {
+    margin-top: 0; /* **Clave para reducir espacio superior** */
+    margin-bottom: 15px; /* **Espacio reducido entre párrafo y botón** */
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio flexible restante, empujando el botón hacia abajo */
+}
+
+/* Enlaces "Leer más" en los artículos de novedad */
+.novedad-item a {
+    display: inline-block; /* Mantiene el tamaño según el contenido */
+    background-color: #00796b;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Alinea el botón a la izquierda dentro de su contenedor flex */
+    margin-top: auto; /* Empuja el botón al final de la card si el contenido varía */
+}
+
+/* Estilos al pasar el ratón por los enlaces "Leer más" */
+.novedad-item a:hover {
+    background-color: #009688;
+}
+
+/*
+ * Estilos para la sección de "Contacto" (#contacto)
+ */
+#contacto {
+    padding: 40px 20px;
+    background-color: #e0f2f1;
+    text-align: center;
+}
+
+/* Título de la sección "Contacto" */
+#contacto h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b;
+    margin-bottom: 1em;
+}
+
+/* Información de contacto */
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+/* Párrafos de información de contacto */
+.contact-info p {
+    line-height: 1.8;
+    margin-bottom: 0.5em;
+}
+
+/* Enlaces de correo y teléfono en la información de contacto */
+.contact-info a {
+    color: #009688;
+    text-decoration: none;
+}
+
+/* Formulario de contacto */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas de los campos del formulario */
+.contact-form label {
+    display: block; /* Cada etiqueta en su propia línea */
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Campos de entrada y área de texto del formulario */
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px;
+    margin-bottom: 1em;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Botón de enviar mensaje */
+.contact-form button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos al pasar el ratón por el botón de enviar */
+.contact-form button:hover {
+    background-color: #009688;
+}
+
+/*
+ * Estilos para el pie de página (Footer)
+ */
+footer {
+    background-color: #333; /* Fondo gris oscuro */
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    /* position: sticky; /* Descomentar si quieres que el footer se "pegue" al final de la vista incluso con poco contenido */
+    /* bottom: 0;
+    width: 100%; */
+}
+
+/*
+ * Estilos responsivos para pantallas más pequeñas (teléfonos y tablets)
+ */
+@media (max-width: 768px) {
+    /* Encabezado en pantallas pequeñas */
+    header {
+        flex-direction: column; /* Apila el logo y la navegación */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        padding: 1em;
+    }
+
+    /* Margen inferior para el logo */
+    .logo {
+        margin-bottom: 1em;
+    }
+
+    /* Navegación en pantallas pequeñas */
+    nav ul {
+        flex-direction: column; /* Apila los ítems del menú */
+    }
+
+    /* Margen inferior para los ítems del menú */
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Contenido de inicio en pantallas pequeñas */
+    .inicio-contenido {
+        padding: 1.5em;
+    }
+
+    .inicio-contenido h1 {
+        font-size: 2em;
+    }
+
+    .inicio-contenido h2 {
+        font-size: 1.2em;
+    }
+
+    /* Altura del carrusel en pantallas más pequeñas */
+    #inicio, .carousel-container, .slides img { /* Aplica la reducción de altura a la sección y sus elementos */
+        height: 300px; /* Reduce la altura para móviles */
+    }
+
+    /* Ajuste del margen del modal */
+    .modal-contenido {
+        margin: 5% auto; /* Más cerca de la parte superior en móviles */
+        width: 95%; /* Más ancho en móviles */
+    }
+
+    /* Ajustes para los grids en pantallas pequeñas */
+    .services-grid, .novedades-grid, #contenedorEspecialidades {
+        grid-template-columns: 1fr; /* Una sola columna para móviles */
+    }
+
+    /* Ajustes específicos para las imágenes de servicio y novedad en móvil si es necesario */
+    .service-item img, .novedad-item img {
+        height: 150px; /* Puedes ajustar la altura para que no sean demasiado grandes en móvil */
+    }
+}
+/*
+ * Estilos para la sección de "Contacto" (#contacto)
+ */
+#contacto {
+    padding: 60px 20px;
+    background-color: #f2f2f2; /* Un verde azulado muy claro */
+    text-align: center; /* Centra el título principal */
+}
+
+/* Título principal de la sección de contacto */
+#contacto h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #00796b; /* El verde principal de tu marca */
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+/* Contenedor principal de la información y el formulario */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start; /* Alinea los elementos al inicio de su contenedor */
+}
+
+/* Estilos para la información de contacto (columna izquierda) */
+.contact-info {
+    flex: 1; /* Permite que ocupe espacio flexible */
+    min-width: 300px;
+    text-align: left;
+    padding: 20px; /* Reducimos padding para dar espacio al mapa si es necesario */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; /* Desactivado para que el contenido empiece desde arriba y el mapa tenga su espacio */
+}
+
+.contact-info p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.contact-info p.address { /* Estilo específico para el párrafo de la dirección */
+    margin-top: 15px; /* Espacio arriba de la dirección si está después del mapa */
+    font-weight: 600;
+}
+
+.contact-info p:last-of-type:not(.address) { /* Asegura que el último párrafo de info tenga su margen, si no es la dirección */
+    margin-bottom: 15px;
+}
+
+
+.contact-info a {
+    color: #009688;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #00796b;
+    text-decoration: underline;
+}
+
+/* NUEVOS ESTILOS PARA EL CONTENEDOR DEL MAPA */
+.map-container {
+    position: relative; /* Para el truco del aspect ratio si lo usas */
+    padding-bottom: 75%; /* Ratio de 4:3 (450/600 * 100) - Altura es 75% del ancho */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px; /* Bordes ligeramente redondeados para el mapa */
+    margin-top: 20px; /* Espacio encima del mapa */
+    margin-bottom: 20px; /* Espacio debajo del mapa */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para el mapa */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Estilos para el formulario de contacto (columna derecha) */
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    text-align: left;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #009688;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+}
+
+.contact-form button[type="submit"] {
+    background-color: #009688;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #00796b;
+    transform: translateY(-2px);
+}
+
+/*
+ * Estilos para el Footer
+ */
+footer {
+    background-color: #00796b; /* El verde oscuro de tu header y marca */
+    color: white; /* Texto blanco para un buen contraste */
+    text-align: center; /* Centra el texto de copyright */
+    padding: 25px 20px; /* Un padding generoso para que no se vea pegado */
+    font-size: 0.95em; /* Tamaño de fuente ligeramente más grande para legibilidad */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Una sombra sutil en la parte superior para separarlo del contenido */
+    margin-top: 60px; /* Agrega un margen superior para separarlo de la sección de contacto */
+}
+
+/* Estilo para el párrafo dentro del footer */
+footer p {
+    margin: 0; /* Asegura que no haya margen extra en el párrafo */
+    line-height: 1.5; /* Mejora la legibilidad si el texto es largo */
+}
+
+
+/*
+ * Media Queries para responsividad en dispositivos más pequeños
+ * (Asegúrate de agregar ESTO dentro de tu @media existente si tienes uno global)
+ */
+@media (max-width: 768px) {
+    /* ... otros estilos responsivos que ya tengas ... */
+
+    /* Estilos responsivos para el Footer */
+    footer {
+        padding: 20px 15px; /* Ajusta el padding para que sea más compacto en móviles */
+        font-size: 0.85em; /* Fuente ligeramente más pequeña en móviles */
+        margin-top: 40px; /* Menos margen superior en móviles */
+    }
+
+    /* agregar más estilos responsivos aquí si es necesario ... */
+}
